@@ -1,0 +1,22 @@
+<div id="navbar">
+
+      <% if logged_in? %>
+        <%= erb :_logout %>
+      <% else %>
+        <%= erb :_login %>
+      <% end %>
+
+
+    <div id="Poupbanner">
+      <br>
+      <img src="../images/pouptube.png" style="width: 100%">
+    </div>
+
+
+      <% if logged_in? %>
+        <%= erb :_username %>
+      <% else %>
+        <%= erb :_register %>
+      <% end %>
+
+</div>

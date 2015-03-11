@@ -1,0 +1,23 @@
+<%= erb :_navbar %>
+
+<div id="poup_search">
+  <%= erb :_search %>
+</div>
+
+<div class="user_box" id="user_links">
+  <% @links.each do |link| %>
+  <p><a href="<%= link.url %>"><%= link.url %></a></p>
+  <% end %>
+</div>
+
+<div class="video_panel">
+  <p>this is where video will be</p>
+</div>
+
+
+<div class="user_box" id="recent_links">
+  <% @all_links.each do |link| %>
+  <p><a href="<%= link.url %>"><%= link.url %></a></p>
+  <% end %>
+</div>
+

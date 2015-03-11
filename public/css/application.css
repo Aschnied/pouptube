@@ -1,0 +1,82 @@
+/** {
+  border: 1px solid black;
+}
+*/
+#navbar {
+  display: block;
+  margin-top: 2em;
+  display: flex;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #AD855C;
+  width: 98%;
+  margin-left: 1%;
+
+}
+
+.form {
+  float: left;
+  margin-left: 10%;
+  text-align: center;
+}
+
+
+#Poupbanner {
+  float: left;
+  margin-left: 11%;
+  width: 30%;
+
+
+}
+
+h2 {
+  text-align: center;
+}
+
+#username {
+  float: left;
+  margin-left: 10%;
+  text-align: center;
+  font-size: 50px;
+
+}
+
+
+#index_container {
+  display: block;
+  margin: 0 auto;
+  width: 50%;
+  margin-top: 5%;
+}
+
+
+#poup_search {
+  margin-top: 2%;
+  width: 50%;
+  margin-left: 25%;
+}
+
+
+.user_box {
+  width: 23%;
+  height: 400px;
+  float: left;
+  margin-left: 1%;
+  margin-top: 2%;
+  border: 1px solid black;
+  border-radius: 15px;
+  text-align: center;
+}
+
+.video_panel {
+  width: 48%;
+  height: 400px;
+  float: left;
+  margin-left: 1%;
+  margin-top: 2%;
+  border: 1px solid black;
+  border-radius: 15px;
+  text-align: center;
+
+}
+
