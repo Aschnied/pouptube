@@ -1,7 +1,7 @@
-/** {
+* {
   border: 1px solid black;
 }
-*/
+
 #navbar {
   display: block;
   margin-top: 2em;
@@ -25,7 +25,6 @@
   float: left;
   margin-left: 11%;
   width: 30%;
-
 
 }
 
@@ -62,7 +61,7 @@ h2 {
   height: 400px;
   float: left;
   margin-left: 1%;
-  margin-top: 2%;
+  margin-top: 1%;
   border: 1px solid black;
   border-radius: 15px;
   text-align: center;
@@ -73,7 +72,7 @@ h2 {
   height: 400px;
   float: left;
   margin-left: 1%;
-  margin-top: 2%;
+  margin-top: 1%;
   border: 1px solid black;
   border-radius: 15px;
   text-align: center;

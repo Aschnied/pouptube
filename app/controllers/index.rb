@@ -17,7 +17,7 @@ end
 
 post '/login'  do
   @user=User.authenticate_by_username(params[:username], params[:password])
-  if (@user||= User.authenticate_by_email(params[:username], params[:password]))
+  if (@user||= User.authenticate_by_username(params[:username], params[:password]))
     login_user(@user)
     redirect "/users/#{@user.username}"
   else
@@ -38,12 +38,7 @@ end
 post '/logout' do
   logout_user
 
-  # debugger
-
   redirect '/'
 
 end
 
-post '/API/dataparser' do
-
-end
