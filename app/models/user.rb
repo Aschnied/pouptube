@@ -6,7 +6,10 @@ class User < ActiveRecord::Base
 
   include BCrypt
 
-  validates :username, uniqueness: true, presence: true
+  validates :username, uniqueness: true,
+    :uniqueness => {:message => "Username is taken"}
+  validates :password, presence: true,
+    :presence => {:message => "Password error"}
 
   def password
     @password ||= BCrypt::Password.new(password_hash)
@@ -16,12 +19,6 @@ class User < ActiveRecord::Base
     @password = BCrypt::Password.create(new_password)
     self.password_hash = @password
   end
-
-  def self.authenticate_by_username(username, password)
-    user = User.find_by(username:username)
-    (user && user.password == password) ? user : false
-  end
-
 
   def self.authenticate_by_username(username, password)
     user = User.find_by(username:username)

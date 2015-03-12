@@ -1,4 +1,6 @@
 get '/' do
+  @login_user = User.new
+  @register_user = User.new
   erb :index
 end
 
@@ -16,22 +18,28 @@ get '/users/:username' do
 end
 
 post '/login'  do
-  @user=User.authenticate_by_username(params[:username], params[:password])
-  if (@user||= User.authenticate_by_username(params[:username], params[:password]))
-    login_user(@user)
-    redirect "/users/#{@user.username}"
+  @register_user = User.new
+  @login_user = User.where(username: params[:username]).first
+  if @login_user && @login_user.authenticate(params[:password])
+    login_user(@login_user)
+    redirect "/users/#{@login_user.username}"
   else
-    redirect '/'
+    if !@login_user # username is bad
+      @login_user = User.new
+      @login_user.errors.add('username', 'not found')
+    end
+    erb :index
   end
 end
 
 post '/register' do
-  @user = User.new(username: params[:username], email: params[:email], password: params[:password])
-  if @user.save
-    login_user(@user)
-    redirect "/users/#{@user.username}"
+  @login_user = User.new
+  @register_user = User.new(username: params[:username], password: params[:password])
+  if @register_user.save
+    login_user(@register_user)
+    redirect "/users/#{@register_user.username}"
   else
-    redirect '/'
+    erb :index
   end
 end
 

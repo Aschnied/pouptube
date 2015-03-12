@@ -1,28 +1,55 @@
  $(document).ready(function() {
-  $('.submit').on('click', function(event) {
-    event.preventDefault();
-      var query = $('#query').val();
 
-    $.ajax({
-      url: apiUrlBuilder(query),
-      type: 'get',
-      dataType: 'xml',
-    }).done(function(data) {
-        console.log(data);
-        var entries = data.getElementsByTagName("entry");
-        console.log(entries);
-        var target = entries[Math.floor(Math.random()*entries.length)];
-        console.log(target);
-    }).fail(function() {
-        console.log("error");
-      });
+  var extractYoutubeId = function(url) {
+    // console.log('url????', url);
+    var matches = url.match(/v=([^&]+)/)
+    return matches ? matches[1] : null;
+  };
 
-  function apiUrlBuilder(query) {
-  return "https://gdata.youtube.com/feeds/api/videos?q=" + query + "&max-results=50&fields=entry[yt:statistics/@viewCount <1000]";
+  var getYoutubeId = function(document){
+    var entries = document.getElementsByTagName("entry");
+      if (entries.length < 1) return null;
+    var target = entries[Math.floor(Math.random()*entries.length)];
+    console.log(target);
+    var linktext = target.getElementsByTagName("link")[0]
+    console.log(linktext);
+    if (!linktext) return null;
+    var videoId = extractYoutubeId(linktext.attributes.href.textContent);
+    console.log(videoId);
+    return videoId;
+  }
+
+
+  var apiUrlBuilder = function(query) {
+    return "https://gdata.youtube.com/feeds/api/videos?q=" + query + "&max-results=50&fields=entry[yt:statistics/@viewCount <100]";
   };
 
 
-     });
+  $('.submit').on('click', function(event) {
+    event.preventDefault();
+    var query = $('#query').val();
+
+    var request = $.ajax({
+      url: apiUrlBuilder(query),
+      type: 'get',
+      dataType: 'xml',
+    });
+
+    request.done(function(document) {
+      console.log(document);
+      var newUrl = getYoutubeId(document);
+      console.log(newUrl);
+
+      $('.iframe').attr('src', "https://www.youtube.com/embed/" + newUrl );
+
+    });
+
+    request.fail(function() {
+      console.log("error");
+    });
+
+  });
+
 })
 
 
