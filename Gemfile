@@ -15,7 +15,6 @@ gem 'activerecord', '~>4.1'
 gem 'rake'
 gem 'bcrypt'
 gem 'shotgun'
-gem 'debugger'
 
 group :test do
   gem 'shoulda-matchers'
@@ -28,4 +27,6 @@ group :test, :development do
   gem 'factory_girl'
   gem 'faker'
   gem 'pry-debugger'
+  gem 'debugger'
+
 end
