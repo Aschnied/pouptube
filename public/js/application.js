@@ -1,7 +1,6 @@
  $(document).ready(function() {
 
   var extractYoutubeId = function(url) {
-    // console.log('url????', url);
     var matches = url.match(/v=([^&]+)/)
     return matches ? matches[1] : null;
   };
@@ -80,5 +79,12 @@
 
 
  });
+
+ $('a:link').on('click', function(event) {
+  event.preventDefault();
+    var embedUrl = $(this).attr('href')
+  $('.iframe').attr('src', embedUrl);
+
+  });
 
 })
