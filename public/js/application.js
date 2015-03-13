@@ -9,6 +9,9 @@
   var getYoutubeId = function(document){
     var entries = document.getElementsByTagName("entry");
       if (entries.length < 1) return null;
+      // else
+      //   $('.iframe').hide();
+      //   $('.no_result').show();
     var target = entries[Math.floor(Math.random()*entries.length)];
     console.log(target);
     var linktext = target.getElementsByTagName("link")[0]
@@ -19,9 +22,8 @@
     return videoId;
   }
 
-
   var apiUrlBuilder = function(query) {
-    return "https://gdata.youtube.com/feeds/api/videos?q=" + query + "&max-results=50&fields=entry[yt:statistics/@viewCount <100]";
+    return "https://gdata.youtube.com/feeds/api/videos?q=" + query + "&max-results=50&fields=entry[yt:statistics/@viewCount <400]";
   };
 
 
@@ -53,4 +55,26 @@
 })
 
 
+ // $('.add').on('click', function(e) {
+ //  e.preventDefault();
+ //  var saveUrl = $('.iframe').attr('src');
+ //    console.log(saveUrl);
+ //  });
+ //    $.ajax({
+ //      url: '/username/links',
+ //      type: 'post',
+ //      // dataType: ,
+ //      data: {url: url},
+ //    })
+ //    .done(function() {
+ //      console.log("success");
+ //    })
+ //    .fail(function() {
+ //      console.log("error");
+ //    })
+ //    .always(function() {
+ //      console.log("complete");
+ //    });
+
+ // });
 

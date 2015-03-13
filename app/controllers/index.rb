@@ -50,3 +50,7 @@ post '/logout' do
 
 end
 
+post '/username/links' do
+  new_url = Link.create(url: params[:url])
+  p new_url
+end
