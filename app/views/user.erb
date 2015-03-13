@@ -11,6 +11,7 @@
 </div>
 
 <div class="user_box" id="user_links">
+  <h3>Your Poups</h3>
   <% @links.each do |link| %>
   <p><a href="<%= link.url %>"><%= link.url %></a></p>
   <% end %>
@@ -25,6 +26,7 @@
 
 
 <div class="user_box" id="recent_links">
+  <h3>Global Poups</h3>
   <% @all_links.each do |link| %>
   <p><a href="<%= link.url %>"><%= link.url %></a></p>
   <% end %>
