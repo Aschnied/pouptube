@@ -51,6 +51,9 @@ post '/logout' do
 end
 
 post '/username/links' do
-  new_url = Link.create(url: params[:url])
-  p new_url
+  current_id = session[:user_id]
+  new_url = Link.create(url: params[:url], user_id:current_id)
+  new_url.to_json
+
+
 end

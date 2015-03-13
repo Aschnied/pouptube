@@ -2,6 +2,9 @@
   border: 1px solid black;
 }*/
 
+a:link {
+  font-size: 12px;
+}
 #navbar {
   display: block;
   margin-top: 5px;
@@ -93,7 +96,6 @@ h2 {
 }
 
 #no_result {
-  display: none;
   width: 48%;
   height: 390px;
   float: left;
@@ -110,4 +112,8 @@ h2 {
 
 .password_field {
   margin-top: 2%
+}
+
+button.add {
+  background-color: 996633;
 }

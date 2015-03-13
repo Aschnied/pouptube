@@ -9,9 +9,8 @@
   var getYoutubeId = function(document){
     var entries = document.getElementsByTagName("entry");
       if (entries.length < 1) return null;
-      // else
-      //   $('.iframe').hide();
-      //   $('.no_result').show();
+        // $('.iframe').hide();
+        // $('.no_result').show();
     var target = entries[Math.floor(Math.random()*entries.length)];
     console.log(target);
     var linktext = target.getElementsByTagName("link")[0]
@@ -52,29 +51,34 @@
 
   });
 
+
+
+
+ $('.add').on('click', function(e) {
+  e.preventDefault();
+  var saveUrl = $('.iframe').attr('src');
+    console.log(saveUrl);
+
+    $.ajax({
+      url: '/username/links',
+      type: 'post',
+      dataType: 'json',
+      data: {url: saveUrl},
+    })
+    .done(function(new_url) {
+      console.log(new_url);
+      $('#user_links').append("<p><a href='" + new_url.url + "'>" + new_url.url + "</a></p>");
+      $('#recent_links').append("<p><a href='" + new_url.url + "'>" + new_url.url + "</a></p>");
+
+    })
+    .fail(function() {
+      console.log("error");
+    })
+    .always(function() {
+      console.log("complete");
+    });
+
+
+ });
+
 })
-
-
- // $('.add').on('click', function(e) {
- //  e.preventDefault();
- //  var saveUrl = $('.iframe').attr('src');
- //    console.log(saveUrl);
- //  });
- //    $.ajax({
- //      url: '/username/links',
- //      type: 'post',
- //      // dataType: ,
- //      data: {url: url},
- //    })
- //    .done(function() {
- //      console.log("success");
- //    })
- //    .fail(function() {
- //      console.log("error");
- //    })
- //    .always(function() {
- //      console.log("complete");
- //    });
-
- // });
-
