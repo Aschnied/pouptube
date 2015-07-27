@@ -1,30 +1,15 @@
-> **Note**: This branch (master) contains a skeleton without any app code, perfect for creating a _new_ application or challenge. If you're looking for an example app built with this skeleton, take a look at the [example](/../..//tree/example) branch which includes basic CRUD and RSpec tests.
+Hello and thanks for reading this!
 
-### Purpose
-The Sinatra Skeleton:
+I created Pouptube as a project for Dev Bootcamp and I was met with immediate praise from faculty and classmates over the enjoyment factor that Pouptube provided.
 
-1. Provides a foundation for building challenges or creating a new Sinatra application.
-2. Demonstrates a reasonable set of practices around building Sinatra applications.
-3. Eases the transition to Rails for Dev Bootcamp students
+I dig a LOT of digging through Google search to find the API call that would allow me to filter my search by view count. HOWEVER, the link was part of Youtube's 2.0 API.  Because of that, it has since been deprecated and the search functionality of Pouptube no longer works.  I am currently trying to find a way to implement the same by-viewcount search with the 3.0 API but have not had any luck.
 
-### Quickstart
+To, view/use Pouptube, please use my account.
 
-1.  `bundle install`
-2.  `shotgun config.ru`
+Username: Andrew
+Password: 1
 
-As needed, create models & migrations with the `rake` tasks:
+Have a look at the spectacularly awful and entertaininng videos my friends and I have uncovered.
 
-```
-rake generate:migration  # Create an empty migration in db/migrate, e.g., rake generate:migration NAME=create_tasks
-rake generate:model      # Create an empty model in app/models, e.g., rake generate:model NAME=User
-```
+Thanks for taking the time to read this, and have a great day!
 
-### Contributing
-
-We would love for you to help make the skeleton more awesome, There are three ways to contribute:
-
-1. Ask for a bug fix or enhancement!
-2. Submit a pull request for a bug fix or enhancement!
-3. Code review an open pull request!
-
-Be prepared to give and receive specific, actionable, and kind feedback!
